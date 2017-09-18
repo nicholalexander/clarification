@@ -22,7 +22,18 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+client = Clarification::Client.new(:faces, :food)
+response = client.analyze(some_public_url)
+
+Each endpoint initialized will be called.  So this analyze action will call two separate API routes and will count as two uses of your key.
+
+```
+response[:faces].face_count 
+# => 3
+response[:food].concepts.first
+# => { concept_name: "cake",
+       confidence: .89 }
+```
 
 ## Development
 

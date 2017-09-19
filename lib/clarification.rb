@@ -6,8 +6,8 @@ module Clarification
     attr_accessor :configuration
 
     def configure
-      self.configuration || Configuration.new
-      yield(configuration)
+      self.configuration ||= Configuration.new
+      yield(self.configuration)
     end
   end
 end 

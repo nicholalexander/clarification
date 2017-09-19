@@ -1,5 +1,6 @@
-require "clarification/version"
 require "clarification/configuration"
+require "clarification/end_points"
+require "clarification/version"
 
 module Clarification
   class << self

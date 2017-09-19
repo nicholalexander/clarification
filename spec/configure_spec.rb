@@ -9,7 +9,7 @@ RSpec.describe Clarification do
     end
 
     it "should be configured with an api key" do
-      expect(Clarification.configuration.api_key).to be 'asdfasdfasdf'
+      expect(Clarification.configuration.api_key).to eq 'asdfasdfasdf'
     end
   end
 end

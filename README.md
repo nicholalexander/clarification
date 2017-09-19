@@ -36,20 +36,13 @@ This should also work nicely inside a rails initializer.
 
 ## Usage
 
-You
-
-client = Clarification::Client.new(:faces, :food)
-response = client.analyze(some_public_url)
+```
+client = Clarification::Client.new
+response = client.request(some_public_url)
+response[:food] #=> the sha-bling.
+```
 
 Each endpoint initialized will be called.  So this analyze action will call two separate API routes and will count as two uses of your key.
-
-```
-response[:faces].face_count 
-# => 3
-response[:food].concepts.first
-# => { concept_name: "cake",
-       confidence: .89 }
-```
 
 ## Development
 

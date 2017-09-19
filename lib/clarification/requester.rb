@@ -1,12 +1,20 @@
 module Clarification
   class Requester
 
-    def initialize(model)
-      @model = model
+    def initialize(model_array)
+      @model_array = model_array
     end
 
     def get(target_url)
-      uri = uri_builder
+      response = {}
+      @model_array.each do |model|
+        response[model] = get_with_model(target_url, model)
+      end
+      return response
+    end
+
+    def get_with_model(target_url, model)
+      uri = uri_builder(model)
       body = body_builder(target_url)
       request = request_builder(uri, body)
       options = options_builder(uri)
@@ -17,7 +25,6 @@ module Clarification
 
       return response
     end
-
 
     private
 
@@ -35,8 +42,10 @@ module Clarification
       }
     end
 
-    def uri_builder
-      uri = URI.parse("https://api.clarifai.com/v2/models/bd367be194cf45149e75f01d59f77ba7/outputs")
+    def uri_builder(model)
+      model_key = Clarification::PUBLIC_MODELS[model]
+      url = "#{Clarification::BASE_URL}#{model_key}/outputs"
+      uri = URI.parse(url)
     end
 
     def request_builder(uri, body)

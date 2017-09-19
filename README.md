@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/clarification.svg)](https://badge.fury.io/rb/clarification)
+
 # Clarification - DO NOT INSTALL - IN DEVELOPMENT
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/clarification`. To experiment with that code, run `bin/console` for an interactive prompt.

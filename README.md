@@ -22,6 +22,15 @@ Or install it yourself as:
 
 ## Usage
 
+Configure the gem as you would normally.
+
+```
+  Clarification.configure do |config|
+    config.api_key = 'a_big_secret_you_got_from_clarifai'
+    config.end_points = [:food]
+  end
+```
+
 client = Clarification::Client.new(:faces, :food)
 response = client.analyze(some_public_url)
 

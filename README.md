@@ -1,4 +1,5 @@
 [![Gem Version](https://badge.fury.io/rb/clarification.svg)](https://badge.fury.io/rb/clarification)
+[![Build Status](https://travis-ci.org/nicholalexander/clarification.svg?branch=master)](https://travis-ci.org/nicholalexander/clarification)
 
 # Clarification - DO NOT INSTALL - IN DEVELOPMENT
 

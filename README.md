@@ -1,5 +1,7 @@
 [![Gem Version](https://badge.fury.io/rb/clarification.svg)](https://badge.fury.io/rb/clarification)
 [![Build Status](https://travis-ci.org/nicholalexander/clarification.svg?branch=master)](https://travis-ci.org/nicholalexander/clarification)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cb0dd6cce7ec48a191696780951c5efe)](https://www.codacy.com/app/nicholalexander/clarification?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nicholalexander/clarification&amp;utm_campaign=Badge_Grade)
+
 
 # Clarification - DO NOT INSTALL - IN DEVELOPMENT
 
@@ -53,6 +55,10 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/nicholalexander/clarification. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+https://codeclimate.com/github/nicholalexander/clarification
+https://www.codacy.com/app/nicholalexander/clarification
+
 
 ## License
 

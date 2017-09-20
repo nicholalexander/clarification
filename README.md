@@ -3,7 +3,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/cb0dd6cce7ec48a191696780951c5efe)](https://www.codacy.com/app/nicholalexander/clarification?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nicholalexander/clarification&amp;utm_campaign=Badge_Grade)
 
 
-# Clarification - DO NOT INSTALL - IN DEVELOPMENT
+# Clarification
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/clarification`. To experiment with that code, run `bin/console` for an interactive prompt.
 
@@ -30,21 +30,50 @@ Configure the gem as you would normally.
 ```
   Clarification.configure do |config|
     config.api_key = 'a_big_secret_you_got_from_clarifai'
-    config.end_points = [:food]
+    config.end_points = [:food, :general]
   end
 ```
 
 This should also work nicely inside a rails initializer.
 
+Each endpoint initialized in your configuration will be called.  _So any predictions using a client configured with :food and :general will make two API requests._
+
 ## Usage
 
 ```
 client = Clarification::Client.new
-response = client.request(some_public_url)
-response[:food] #=> the sha-bling.
+response = client.predict(some_public_url_of_an_image)
 ```
 
-Each endpoint initialized will be called.  So this analyze action will call two separate API routes and will count as two uses of your key.
+### Prediction
+
+The response object returned from the prediction is a hash containing a nicely parsed result for each of the models called.  In our example, we initialized with two models so we will have response[:food] and response[:general].  Each of those model results have an object which has three pieces of relevant information: status, concepts, and response_json.  
+
+Thusly you can do thinks like this.:
+
+```
+response[:food].concepts.each do |concept|
+  if concept.value > 0.90
+    puts "#{concept.name}"
+  end
+end
+```
+
+```
+response[:general].response_json
+```
+
+```
+if response[:food].status.code == 10000
+  puts response[:food].status.description
+end
+```
+
+All the objects are OpenStructs currently, but I suspect this will change shortly.
+
+## TODO's
+
+Lots
 
 ## Development
 

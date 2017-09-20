@@ -49,7 +49,7 @@ response = client.predict(some_public_url_of_an_image)
 
 The response object returned from the prediction is a hash containing a nicely parsed result for each of the models called.  In our example, we initialized with two models so we will have response[:food] and response[:general].  Each of those model results have an object which has three pieces of relevant information: status, concepts, and response_json.  
 
-Thusly you can do thinks like this.:
+Thusly you can do things like this:
 
 ```
 response[:food].concepts.each do |concept|
@@ -71,9 +71,24 @@ end
 
 All the objects are OpenStructs currently, but I suspect this will change shortly.
 
+As a convenience, the client also maintains the parsed response in the last_response variable.
+
+```
+client.predict(some_public_url_of_an_image)
+client.last_response #=> {:food => Objectifier...}
+```
+
 ## TODO's
 
-Lots
+Lots and lots of things.  Amongst them:
+
+* validate public model selections
+* error handling
+* predict multiple images per call
+* predict video
+* use workflows
+* searching
+* training custom models
 
 ## Development
 

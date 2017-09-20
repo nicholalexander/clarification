@@ -6,9 +6,25 @@ RSpec.describe Clarification do
       expect(Clarification::BASE_URL.include?('v2')).to be true
     end
 
-    it "should have a value for food" do
-      expect(Clarification.constants.include?(:FOOD)).to be true
+    it "should have values for all clarifai public models" do
+      models = [:apparel,
+         :celebrity,
+         :color,
+         :demographics,
+         :face_detection,
+         :face_embedding,
+         :focus,
+         :food,
+         :general,
+         :general_embedding,
+         :logo,
+         :moderation,
+         :nsfw,
+         :travel,
+         :wedding ]
+      expect(Clarification::PUBLIC_MODELS.keys).to eq(models)
     end
+
   end
 end
 

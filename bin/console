@@ -6,9 +6,17 @@ require "clarification"
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
 
+Clarification.configure do |config|
+  config.api_key = 'f7cc628178994e16b2470ae739ef927a'
+  config.default_models = [:food]
+end
+
+@target_url = 'https://www.cicis.com/media/1138/pizza_trad_pepperoni.png'
+
+@client = Clarification::Client.new
+@response = @client.predict(@target_url)
+
 # (If you use this, don't forget to add pry to your Gemfile!)
 require "pry"
 Pry.start
 
-# require "irb"
-# IRB.start(__FILE__)

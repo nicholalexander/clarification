@@ -4,6 +4,7 @@ module Clarification
     attr_reader :active_models, :last_response
 
     def initialize
+      raise "No Configuration Found." if Clarification.configuration.nil?
       @active_models = Clarification.configuration.default_models
       @last_response = nil
     end

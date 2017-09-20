@@ -1,3 +1,6 @@
+require 'codacy-coverage'
+Codacy::Reporter.start
+
 require "bundler/setup"
 require "clarification"
 

@@ -1,7 +1,7 @@
 module Clarification
   class Client
 
-    attr_reader :active_models
+    attr_reader :active_models, :last_response
 
     def initialize
       @active_models = Clarification.configuration.default_models
@@ -9,10 +9,10 @@ module Clarification
     end
     
     def predict(url)
-      r = Requester.new(@active_models)
-      response = r.get(url)
-      # @last_response = Enrich.new(response)
-      # return @last_response
+      requester = Requester.new(@active_models)
+      response = requester.get(url)
+      @last_response = Enrich.new(response).run
+      return @last_response
     end
 
     def set_models(model_array)

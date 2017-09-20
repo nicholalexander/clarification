@@ -6,7 +6,7 @@
 
 A Ruby wrapper for the [Clarifai API](http://clarifai.com).  This currently uses the v2 of the API and was partially created because other Ruby gems are using v1 which is being depricated in late 2017.  
 
-Clarifai is an awesome service and hopefully this gem makes it easier to use it and use AI image tagging in your Ruby apps.  Please let me know if there's something you'd like to see but don't or if you see something you wish you didn't.  Thanks!
+Clarifai is an awesome service and hopefully this gem makes it easier to use it and to use AI image tagging in your Ruby apps.  Please let me know if there's something you'd like to see but don't or if you see something you wish you didn't.  Thanks!
 
 ## Installation
 

@@ -27,7 +27,7 @@ Or install it yourself as:
 
 Configure the gem as you would normally.
 
-```
+```ruby
   Clarification.configure do |config|
     config.api_key = 'a_big_secret_you_got_from_clarifai'
     config.end_points = [:food, :general]
@@ -40,7 +40,7 @@ Each endpoint initialized in your configuration will be called.  _So any predict
 
 ## Usage
 
-```
+```ruby
 client = Clarification::Client.new
 response = client.predict(some_public_url_of_an_image)
 ```
@@ -51,7 +51,7 @@ The response object returned from the prediction is a hash containing a nicely p
 
 Thusly you can do things like this:
 
-```
+```ruby
 response[:food].concepts.each do |concept|
   if concept.value > 0.90
     puts "#{concept.name}"
@@ -59,11 +59,11 @@ response[:food].concepts.each do |concept|
 end
 ```
 
-```
+```ruby
 response[:general].response_json
 ```
 
-```
+```ruby
 if response[:food].status.code == 10000
   puts response[:food].status.description
 end
@@ -73,7 +73,7 @@ All the objects are OpenStructs currently, but I suspect this will change shortl
 
 As a convenience, the client also maintains the parsed response in the last_response variable.
 
-```
+```ruby
 client.predict(some_public_url_of_an_image)
 client.last_response #=> {:food => Objectifier...}
 ```

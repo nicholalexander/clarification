@@ -8,12 +8,29 @@ require "clarification"
 
 Clarification.configure do |config|
   config.api_key = 'f7cc628178994e16b2470ae739ef927a'
-  config.default_models = [:food]
+  config.default_public_models = [:food, :general]
 end
 
 @target_url = 'https://www.cicis.com/media/1138/pizza_trad_pepperoni.png'
 
+models = [:apparel,
+         :celebrity,
+         :color,
+         :demographics,
+         :face_detection,
+         :face_embedding,
+         :focus,
+         :food,
+         :general,
+         :general_embedding,
+         :logo,
+         :moderation,
+         :nsfw,
+         :travel,
+         :wedding ]
+
 @client = Clarification::Client.new
+@client.set_models(models)
 @response = @client.predict(@target_url)
 
 # (If you use this, don't forget to add pry to your Gemfile!)

@@ -1,5 +1,3 @@
-require 'pry'
-
 require "spec_helper"
 
 RSpec.describe Clarification::Client do
@@ -12,13 +10,13 @@ RSpec.describe Clarification::Client do
     it "should initialize from the configuration" do
       Clarification.configure do |config|
         config.api_key = 'blurgh'
-        config.default_models = [:food]
+        config.default_public_models = [:food]
       end
 
       client = Clarification::Client.new
 
       expect(client.last_response).to be nil
-      expect(client.active_models).to eq([:food])
+      expect(client.active_public_models).to eq([:food])
     end
   end
 
@@ -28,9 +26,9 @@ RSpec.describe Clarification::Client do
 
       client.set_models([:general, :blurgh])
 
-      expect(client.active_models.count).to eq(2)
-      expect(client.active_models.last).to eq(:blurgh)
-      expect(client.active_models.include?(:food)).to be(false)
+      expect(client.active_public_models.count).to eq(2)
+      expect(client.active_public_models.last).to eq(:blurgh)
+      expect(client.active_public_models.include?(:food)).to be(false)
     end
   end
 
@@ -38,6 +36,11 @@ RSpec.describe Clarification::Client do
     it "the client should implement a method called predict" do
       expect(Clarification::Client.new.respond_to? :predict).to be true
     end
+
+    it "should create a new requester"
+    it "should create a new enricher"
+    it "should set last_repsonse"
+    
   end
 
 

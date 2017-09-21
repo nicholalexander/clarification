@@ -33,13 +33,15 @@ Configure the gem as you would normally configure a wonderful happy gem.
 ```ruby
   Clarification.configure do |config|
     config.api_key = 'a_big_secret_you_got_from_clarifai'
-    config.end_points = [:food, :general]
+    config.default_public_models = [:food, :general]
   end
 ```
 
 This should also work nicely inside a rails initializer.
 
 **Each endpoint initialized in your configuration will be called by default from the client.  So any predictions using a client configured with `:food` and `:general` will make two API requests.**
+
+This will change when [Workflow](https://clarifai.com/developer/guide/workflow#workflow) is implemented in the gem.
 
 ## Usage
 

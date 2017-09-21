@@ -7,7 +7,7 @@ RSpec.describe Clarification do
       before do
         Clarification.configure do |config|
           config.api_key = 'asdfasdfasdf'    
-          config.default_models = [:food, :faces]
+          config.default_public_models = [:food, :faces]
         end
       end
 
@@ -16,7 +16,7 @@ RSpec.describe Clarification do
       end
 
       it "should be configured with an array of models to process against" do
-        expect(Clarification.configuration.default_models).to eq [:food, :faces]
+        expect(Clarification.configuration.default_public_models).to eq [:food, :faces]
       end
     end
 
@@ -27,7 +27,7 @@ RSpec.describe Clarification do
         Clarification.configure do |config|
           config.api_key = 'asdf'
         end
-        expect(Clarification.configuration.default_models.empty?).to be true
+        expect(Clarification.configuration.default_public_models.empty?).to be true
       end
     end
 

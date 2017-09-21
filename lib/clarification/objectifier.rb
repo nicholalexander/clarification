@@ -1,3 +1,5 @@
+require 'pry'
+
 module Clarification
   class Objectifier
 
@@ -12,10 +14,30 @@ module Clarification
     end
 
     def build_concept_objects
-      @response_json["outputs"][0]["data"]["concepts"].each do |concept|
-        @concepts << OpenStruct.new(concept)
+      concepts = @response_json.fetch("outputs").fetch(0).fetch("data", nil).fetch("concepts", nil)
+      if concepts
+        begin
+          concepts.each do |concept|
+            @concepts << OpenStruct.new(concept)
+          end
+        rescue
+        end
+      else
+        data = @response_json.fetch("outputs").fetch(0).fetch("data", nil)
+        if !data.empty?
+          
+          # case @response[:focus].response_json['outputs'][0]['model']['name']
+          # when "focus"
+          # when "color"
+          # when "general_embedding"
+          # end
+          
+        end
       end
+
     end
 
   end
 end
+
+

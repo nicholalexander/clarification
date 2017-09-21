@@ -1,5 +1,3 @@
-require 'pry'
-
 module Clarification
   class Objectifier
 
@@ -15,12 +13,9 @@ module Clarification
 
     def build_concept_objects
       concepts = @response_json.fetch("outputs").fetch(0).fetch("data", nil).fetch("concepts", nil)
-      if concepts
-        begin
-          concepts.each do |concept|
-            @concepts << OpenStruct.new(concept) # conecept = tag?
-          end
-        rescue
+      if concepts  
+        concepts.each do |concept|
+          @concepts << OpenStruct.new(concept) # conecept = tag?
         end
       else
         data = @response_json.fetch("outputs").fetch(0).fetch("data", nil)

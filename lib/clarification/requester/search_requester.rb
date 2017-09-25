@@ -49,7 +49,7 @@ module Clarification
                 data: {
                   concepts: [
                     {
-                      "name": "#{concept}"
+                      name: "#{concept}"
                     }
                   ]
                 }

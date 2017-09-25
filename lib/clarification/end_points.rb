@@ -1,5 +1,6 @@
 module Clarification
-  BASE_URL = 'https://api.clarifai.com/v2/models/'.freeze
+  BASE_URL = 'https://api.clarifai.com/v2/'.freeze
+
 
   PUBLIC_MODELS = {
     apparel: 'e0be3b9d6a454f0493ac3a30784001ff',

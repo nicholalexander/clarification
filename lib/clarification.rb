@@ -1,9 +1,13 @@
+require 'pry'
+
 require "clarification/client"
 require "clarification/configuration"
 require "clarification/end_points"
 require "clarification/enrich"
 require "clarification/objectifier"
 require "clarification/requester"
+require "clarification/requester/search_requester"
+require "clarification/search"
 require "clarification/version"
 
 require 'net/http'

@@ -105,6 +105,13 @@ results.hits.each do |hit|
 end
 ```
 
+The search client also saves the last search and searched concept as a matter of convenience.
+
+```ruby
+client.search.last_search.hits.count
+client.search.last_search.concept
+```
+
 Go and do likewise.
 
 ### Train

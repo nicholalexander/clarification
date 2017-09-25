@@ -18,7 +18,6 @@ module Clarification
       return response
     end
 
-
     private
 
     def body_builder(target_urls)

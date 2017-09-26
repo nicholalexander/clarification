@@ -12,19 +12,20 @@ Clarification.configure do |config|
 end
 
 @images = { 
-          mountains: 'http://bit.ly/2wgfaGd',
-          donuts: 'http://bit.ly/2wPY3Qc',
-          kitten: 'http://bit.ly/2xwDKnY',
-          drake: 'http://read.bi/2hrI1Fg',
-          logos: 'http://bit.ly/2xELQwB',
-          faces: 'http://bit.ly/2xvsdFd',
-          faces_2: 'http://bit.ly/2wPkpkP',
-          wedding: 'http://bit.ly/2fttVCn',
-          nsfw: 'http://bit.ly/2ht7IkQ',
-          travel: 'http://bit.ly/2xAUP1A',
-          drugs: 'http://bit.ly/2fMiDq0',
-          gore: 'http://bit.ly/2fucu4T',
+          mountains: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/mountains.jpg',
+          donuts: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/donuts.jpg',
+          kitten: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/kitten.jpg',
+          drake: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/drake.jpg',
+          logos: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/adbusters.gif',
+          faces: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/faces.jpg',
+          faces_2: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/faces2.jpg',
+          wedding: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/wedding.jpg',
+          nsfw: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/naked_trump.jpg',
+          travel: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/travel.png',
+          drugs: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/drugs.jpg',
+          gore: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/cow_head.jpg',
         }
+        
 @urls = [ @images[:mountains], @images[:kitten], @images[:drake] ]
 
 # models = [:apparel,

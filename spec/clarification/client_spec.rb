@@ -43,5 +43,11 @@ RSpec.describe Clarification::Client do
     
   end
 
+  describe "#search" do
+    it "should have an instance of the search class accessible" do
+      expect(Clarification::Client.new.search.class).to eq Clarification::Search
+    end
+    
+  end
 
 end

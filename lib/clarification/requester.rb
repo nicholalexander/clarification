@@ -44,14 +44,14 @@ module Clarification
 
     def uri_builder(model)
       model_key = Clarification::PUBLIC_MODELS[model]
-      url = "#{Clarification::BASE_URL}#{model_key}/outputs"
+      url = "#{Clarification::BASE_URL}models/#{model_key}/outputs"
       uri = URI.parse(url)
     end
 
     def request_builder(uri, body)
       request = Net::HTTP::Post.new(uri)
       request.content_type = "application/json"
-      request["Authorization"] = "Key f7cc628178994e16b2470ae739ef927a"
+      request["Authorization"] = "Key #{Clarification.configuration.api_key}"
       request.body = JSON.dump(body)
 
       return request
@@ -61,10 +61,20 @@ module Clarification
       request_options = {
         use_ssl: uri.scheme == "https",
       }
-
       return request_options
     end
 
+    def get_response(uri, body)
+      request = request_builder(uri, body)
+      options = options_builder(uri)
+
+      response = Net::HTTP.start(uri.hostname, uri.port, options) do |http|
+        http.request(request)
+      end
+
+      return response
+    
+    end
 
 
   end

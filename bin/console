@@ -11,27 +11,46 @@ Clarification.configure do |config|
   config.default_public_models = [:food, :general]
 end
 
-@target_url = 'https://www.cicis.com/media/1138/pizza_trad_pepperoni.png'
+@images = { 
+          mountains: 'http://bit.ly/2wgfaGd',
+          donuts: 'http://bit.ly/2wPY3Qc',
+          kitten: 'http://bit.ly/2xwDKnY',
+          drake: 'http://read.bi/2hrI1Fg',
+          logos: 'http://bit.ly/2xELQwB',
+          faces: 'http://bit.ly/2xvsdFd',
+          faces_2: 'http://bit.ly/2wPkpkP',
+          wedding: 'http://bit.ly/2fttVCn',
+          nsfw: 'http://bit.ly/2ht7IkQ',
+          travel: 'http://bit.ly/2xAUP1A',
+          drugs: 'http://bit.ly/2fMiDq0',
+          gore: 'http://bit.ly/2fucu4T',
+        }
+@urls = [ @images[:mountains], @images[:kitten], @images[:drake] ]
 
-models = [:apparel,
-         :celebrity,
-         :color,
-         :demographics,
-         :face_detection,
-         :face_embedding,
-         :focus,
-         :food,
-         :general,
-         :general_embedding,
-         :logo,
-         :moderation,
-         :nsfw,
-         :travel,
-         :wedding ]
+# models = [:apparel,
+#          :celebrity,
+#          :color,
+#          :demographics,
+#          :face_detection,
+#          :face_embedding,
+#          :focus,
+#          :food,
+#          :general,
+#          :general_embedding,
+#          :logo,
+#          :moderation,
+#          :nsfw,
+#          :travel,
+#          :wedding ]
 
 @client = Clarification::Client.new
-@client.set_models(models)
-@response = @client.predict(@target_url)
+# @client.set_models(models)
+# @response = @client.predict(@target_url)
+
+# @client.search.index_image
+# @client.search.by_concepts
+# @client.search.by_images
+
 
 # (If you use this, don't forget to add pry to your Gemfile!)
 require "pry"

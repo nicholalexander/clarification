@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["nichol.alexander@gmail.com"]
 
   spec.summary       = %q{An unofficial API wrapper for the Clarifai Image and Video Recognition API.}
-  spec.description   = %q{Alpha Version - configure, access Clarifai set end points, interrogate responses.}
+  spec.description   = %q{Alpha Version - Predict and Search using Clarifai.}
   spec.homepage      = "https://github.com/nicholalexander/clarification"
   spec.license       = "MIT"
 

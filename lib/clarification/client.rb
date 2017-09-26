@@ -1,12 +1,13 @@
 module Clarification
   class Client
 
-    attr_reader :active_public_models, :last_response
+    attr_reader :active_public_models, :last_response, :search
 
     def initialize
       raise "No Configuration Found." if Clarification.configuration.nil?
       @active_public_models = Clarification.configuration.default_public_models
       @last_response = nil
+      @search = Search.new
     end
     
     def predict(url)

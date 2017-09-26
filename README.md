@@ -85,6 +85,37 @@ client.predict(some_public_url_of_an_image)
 client.last_response #=> {:food => Objectifier...}
 ```
 
+### Search
+
+The client has a search object which can be used to index images with the Clarifai application identified by the API key.  
+
+Thusly you can do like this:
+
+```ruby
+image_array = [ url_to_picture_of_kitten, url_to_picture_of_pizza, url_to_picture_of_drake]
+client.search.index_images(image_array)
+```
+
+Once you have your images indexed, you can go and search them by concepts that might be in your picture as identified by Clarifai's general prediction model.
+
+```ruby
+results = client.search.by_concept('cat')
+results.hits.each do |hit|
+  puts hit.url if hit.score > .90
+end
+```
+
+The search client also saves the last search and searched concept as a matter of convenience.
+
+```ruby
+client.search.last_search.hits.count
+client.search.last_search.concept
+```
+
+Go and do likewise.
+
+### Train
+
 ## TODO's
 
 Lots and lots of things.  Amongst them:

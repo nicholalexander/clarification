@@ -12,7 +12,6 @@ module Clarification
       @response_array.each do |model_name, raw_response |
         @results[model_name] = Objectifier.new(raw_response.body)
       end
-
       return @results
     end
 

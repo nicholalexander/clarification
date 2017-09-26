@@ -18,6 +18,10 @@ module Clarification
     end
 
     def set_models(model_array)
+      if model_array.class != Array
+        raise "Clarification expects an array of models."
+      end
+      
       @active_public_models = model_array
     end
 

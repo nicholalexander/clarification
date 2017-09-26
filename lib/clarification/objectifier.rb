@@ -1,18 +1,29 @@
 module Clarification
   class Objectifier
 
-    attr_reader :response_json, :status, :concepts
+    attr_reader :response_json, :status, :concepts, :error
 
     def initialize(response)
       @response_json = JSON.parse(response)
       @status = OpenStruct.new(@response_json["status"])
       @concepts = []
+      @error = nil
 
+      
       build_concept_objects
+      
+
     end
 
     def build_concept_objects
-      concepts = @response_json.fetch("outputs").fetch(0).fetch("data", nil).fetch("concepts", nil)
+      
+      begin
+        concepts = @response_json.fetch("outputs").fetch(0).fetch("data", nil).fetch("concepts", nil)
+      rescue StandardError => e
+        @error = e
+        return
+      end
+
       if concepts  
         concepts.each do |concept|
           @concepts << OpenStruct.new(concept) # conecept = tag?

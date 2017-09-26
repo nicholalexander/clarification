@@ -12,19 +12,19 @@ Clarification.configure do |config|
 end
 
 @images = { 
-          mountains: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/mountains.jpg',
-          donuts: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/donuts.jpg',
-          kitten: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/kitten.jpg',
-          drake: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/drake.jpg',
-          logos_gif: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/adbusters.gif',
-          logos_jpg: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/adbusters.jpg',
-          faces: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/faces.jpg',
-          faces_2: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/faces2.jpg',
-          wedding: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/wedding.jpg',
-          nsfw: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/naked_trump.jpg',
-          travel: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/travel.png',
-          drugs: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/drugs.jpg',
-          gore: 'https://github.com/nicholalexander/clarification/blob/master/spec/support/images/cow_head.jpg',
+          mountains: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/mountains.jpg',
+          donuts: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/donuts.jpg',
+          kitten: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/kitten.jpg',
+          drake: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/drake.jpg',
+          logos_gif: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/adbusters.gif',
+          logos_jpg: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/adbusters.jpg',
+          faces: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/faces.jpg',
+          faces_2: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/faces2.jpg',
+          wedding: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/wedding.jpg',
+          nsfw: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/naked_trump.jpg',
+          travel: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/travel.png',
+          drugs: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/drugs.jpg',
+          gore: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/cow_head.jpg',
         }
         
 @urls = [ @images[:mountains], @images[:kitten], @images[:drake] ]

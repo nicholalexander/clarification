@@ -8,11 +8,9 @@ module Clarification
       @status = OpenStruct.new(@response_json["status"])
       @concepts = []
       @error = nil
-
       
       build_concept_objects
       
-
     end
 
     def build_concept_objects
@@ -25,8 +23,14 @@ module Clarification
       end
 
       if concepts  
-        concepts.each do |concept|
-          @concepts << OpenStruct.new(concept) # conecept = tag?
+        concepts.each do |concept_hash|
+  
+          name = concept_hash["name"]
+          value = concept_hash["value"]
+
+          concept = Concept.new(name, value)
+
+          @concepts << concept
         end
       else
         data = @response_json.fetch("outputs").fetch(0).fetch("data", nil)

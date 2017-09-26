@@ -4,6 +4,7 @@ RSpec.describe Clarification::Client do
       
   context "when first initialized" do 
     it "should raise a configuration error if no configuration present" do
+      Clarification.configuration = nil
       expect{Clarification::Client.new}.to raise_error(RuntimeError)
     end
 

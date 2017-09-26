@@ -13,6 +13,8 @@ module Clarification
       return response
     end
 
+    private
+
     def get_with_model(target_url, model)
       uri = uri_builder(model)
       body = body_builder(target_url)

@@ -1,4 +1,5 @@
 require "clarification/client"
+require "clarification/concept"
 require "clarification/configuration"
 require "clarification/end_points"
 require "clarification/enrich"

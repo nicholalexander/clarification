@@ -14,6 +14,7 @@ module Clarification
     end
 
     def by_images(image_array)
+      raise "Not Implemented"
     end
 
     def by_concept(concept)

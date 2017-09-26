@@ -2,6 +2,7 @@
 
 require "bundler/setup"
 require "clarification"
+require "yaml"
 
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
@@ -11,21 +12,7 @@ Clarification.configure do |config|
   config.default_public_models = [:food, :general]
 end
 
-@images = { 
-          mountains: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/mountains.jpg',
-          donuts: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/donuts.jpg',
-          kitten: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/kitten.jpg',
-          drake: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/drake.jpg',
-          logos_gif: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/adbusters.gif',
-          logos_jpg: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/adbusters.jpg',
-          faces: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/faces.jpg',
-          faces_2: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/faces2.jpg',
-          wedding: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/wedding.jpg',
-          nsfw: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/naked_trump.jpg',
-          travel: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/travel.png',
-          drugs: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/drugs.jpg',
-          gore: 'https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/cow_head.jpg',
-        }
+@images = YAML.load_file("spec/support/images.yml")
         
 @urls = [ @images[:mountains], @images[:kitten], @images[:drake] ]
 

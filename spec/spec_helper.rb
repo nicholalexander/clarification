@@ -3,6 +3,7 @@ Codacy::Reporter.start
 
 require "bundler/setup"
 require "clarification"
+require "yaml"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

@@ -63,7 +63,7 @@ module Clarification
 
     def uri_builder(path)
       url = "#{Clarification::BASE_URL}#{path}"
-      uri = URI.parse(url)
+      URI.parse(url)
     end
 
   end

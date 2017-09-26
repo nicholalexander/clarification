@@ -13,7 +13,7 @@ module Clarification
       # need some useful response here
     end
 
-    def by_images(image_array)
+    def by_images(_image_array)
       raise "Not Implemented"
     end
 

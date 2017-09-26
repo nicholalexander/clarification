@@ -96,7 +96,7 @@ image_array = [ url_to_picture_of_kitten, url_to_picture_of_pizza, url_to_pictur
 client.search.index_images(image_array)
 ```
 
-Once you have your images indexed, you can go and search them by concepts that might be in your picture as identified by Clarifai's general prediction model.
+Once you have your images indexed, you can go and search them by concepts that might be in your pictures as identified by Clarifai's general prediction model.
 
 ```ruby
 results = client.search.by_concept('cat')
@@ -116,6 +116,8 @@ Go and do likewise.
 
 ### Train
 
+...Upcoming...
+
 ## TODO's
 
 Lots and lots of things.  Amongst them:
@@ -127,7 +129,6 @@ Lots and lots of things.  Amongst them:
 * better testing.
 * documentation
 * use workflows
-* searching
 * training custom models
 
 ## Development

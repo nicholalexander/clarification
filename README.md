@@ -156,7 +156,7 @@ The repo intentionally includes an api key in bin/console to make experimenting 
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/nicholalexander/clarification. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-You can also see various code reporting / CI info here:
+You can also see various code reporting / CI info here:  
 [travis ci](https://travis-ci.org/nicholalexander/clarification)  
 [codacy](https://www.codacy.com/app/nicholalexander/clarification)  
 [code climate](https://codeclimate.com/github/nicholalexander/clarification)   

@@ -50,23 +50,42 @@ RSpec.describe Clarification::Client do
       expect(Clarification::Client.new.respond_to? :predict).to be true
     end
 
-    context "with mocks" do
-      it "should use a Requester to get the url and run an Enricher" do
-        allow_any_instance_of(Clarification::Requester).to receive(:get)
-        allow_any_instance_of(Clarification::Enrich).to receive(:run)
+    
+    it "should return an array of concepts" do
+        
+      VCR.use_cassette('predict_cat') do
+        Clarification.configure do |config|
+          config.api_key = 'f7cc628178994e16b2470ae739ef927a'
+          config.default_public_models = [:food, :general]
+        end
+
+        images = YAML.load_file("spec/fixtures/images.yml")
+        url = images[:kitten]
 
         client = Clarification::Client.new
-        client.predict("some_url")
-      end
+        response = client.predict(url)
 
-      it "should set @last_response" do
-        allow_any_instance_of(Clarification::Requester).to receive(:get)
-        allow_any_instance_of(Clarification::Enrich).to receive(:run).and_return("blonk")      
-        client = Clarification::Client.new
-        client.predict("some_url") 
-        expect(client.last_response).to eq("blonk")
+        expect(response[:general].concepts.class).to eq Array
       end
     end
+
+    it "should set @last_response" do
+      VCR.use_cassette('predict_cat') do
+        Clarification.configure do |config|
+          config.api_key = 'f7cc628178994e16b2470ae739ef927a'
+          config.default_public_models = [:food, :general]
+        end
+
+        images = YAML.load_file("spec/fixtures/images.yml")
+        url = images[:kitten]
+
+        client = Clarification::Client.new
+        response = client.predict(url)
+
+        expect(client.last_response).to eq response
+      end
+    end
+  
   end
 
   describe "#search" do

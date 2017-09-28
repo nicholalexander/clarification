@@ -12,7 +12,7 @@ Clarification.configure do |config|
   config.default_public_models = [:food, :general]
 end
 
-@images = YAML.load_file("spec/support/images.yml")
+@images = YAML.load_file("spec/fixtures/images.yml")
         
 @urls = [ @images[:mountains], @images[:kitten], @images[:drake] ]
 

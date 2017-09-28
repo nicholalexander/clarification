@@ -1,7 +1,7 @@
 module Clarification
   class Requester
 
-    def initialize(*model_array)
+    def initialize(model_array)
       @model_array = model_array
     end
 

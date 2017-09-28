@@ -51,8 +51,7 @@ RSpec.describe Clarification::Client do
     end
 
     
-    it "should return an array of concepts" do
-        
+    it "should return an array of concepts" do        
       VCR.use_cassette('predict_cat') do
         Clarification.configure do |config|
           config.api_key = 'f7cc628178994e16b2470ae739ef927a'
@@ -70,7 +69,7 @@ RSpec.describe Clarification::Client do
     end
 
     it "should set @last_response" do
-      VCR.use_cassette('predict_cat') do
+      VCR.use_cassette('predict_cat', re_record_interval: 604800) do
         Clarification.configure do |config|
           config.api_key = 'f7cc628178994e16b2470ae739ef927a'
           config.default_public_models = [:food, :general]

@@ -33,20 +33,20 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Thu, 28 Sep 2017 19:11:29 GMT
+      - Thu, 28 Sep 2017 19:45:04 GMT
       Server:
       - nginx
       Content-Length:
-      - '949'
+      - '946'
       Connection:
       - keep-alive
     body:
       encoding: ASCII-8BIT
-      string: '{"status":{"code":10000,"description":"Ok"},"outputs":[{"id":"f922e41d0f2147b1ac4f2673b3434703","status":{"code":10000,"description":"Ok"},"created_at":"2017-09-28T19:11:29.251602887Z","model":{"id":"bd367be194cf45149e75f01d59f77ba7","name":"food-items-v1.0","created_at":"2016-09-17T22:18:59.955626Z","app_id":"main","output_info":{"message":"Show
+      string: '{"status":{"code":10000,"description":"Ok"},"outputs":[{"id":"d9796d7b362046c5b054b88a866af389","status":{"code":10000,"description":"Ok"},"created_at":"2017-09-28T19:45:04.021000827Z","model":{"id":"bd367be194cf45149e75f01d59f77ba7","name":"food-items-v1.0","created_at":"2016-09-17T22:18:59.955626Z","app_id":"main","output_info":{"message":"Show
         output_info with: GET /models/{model_id}/output_info","type":"concept","type_ext":"concept"},"model_version":{"id":"dfebc169854e429086aceb8368662641","created_at":"2016-09-17T22:18:59.955626Z","status":{"code":21100,"description":"Model
-        trained successfully"}},"display_name":"Food"},"input":{"id":"b021b3ace8594197adb88efd64fa222b","data":{"image":{"url":"https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/kitten.jpg"}}},"data":{"concepts":[{"id":"ai_PGKDcpxM","name":"bird","value":0.9589917,"app_id":"main"},{"id":"ai_jvVxlhLh","name":"chicken","value":0.80907756,"app_id":"main"},{"id":"ai_ZQGfkTBT","name":"duck","value":0.8062068,"app_id":"main"},{"id":"ai_b4b4hLRV","name":"turkey","value":0.7651013,"app_id":"main"},{"id":"ai_KNh2Htg8","name":"grass","value":0.6971165,"app_id":"main"},{"id":"ai_r2Fbdv8L","name":"beer","value":0.67652917,"app_id":"main"},{"id":"ai_C4T94MlV","name":"tongue","value":0.65974045,"app_id":"main"},{"id":"ai_0wh0dJkQ","name":"sweet","value":0.63072395,"app_id":"main"},{"id":"ai_G58V132Z","name":"water","value":0.6153836,"app_id":"main"},{"id":"ai_T851HmVS","name":"orange","value":0.5905632,"app_id":"main"},{"id":"ai_w1Hd3dTg","name":"nibble","value":0.56520176,"app_id":"main"},{"id":"ai_hh0lr5sh","name":"peanut","value":0.5568334,"app_id":"main"},{"id":"ai_zFqwk1nf","name":"date","value":0.48576477,"app_id":"main"},{"id":"ai_PCfz16nb","name":"goose","value":0.4799006,"app_id":"main"},{"id":"ai_BR1Svb7D","name":"coconut","value":0.47260264,"app_id":"main"},{"id":"ai_RvRS2tMq","name":"ginger","value":0.4696625,"app_id":"main"},{"id":"ai_7dcVtHqc","name":"lamb","value":0.46312013,"app_id":"main"},{"id":"ai_SJM12nRS","name":"fowl","value":0.45812044,"app_id":"main"},{"id":"ai_vGpGP5X8","name":"stout","value":0.45313442,"app_id":"main"},{"id":"ai_PPr5HPcC","name":"grub","value":0.43578377,"app_id":"main"}]}}]}'
+        trained successfully"}},"display_name":"Food"},"input":{"id":"a41cf2577f524e6a971d5b4f53e47c8a","data":{"image":{"url":"https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/kitten.jpg"}}},"data":{"concepts":[{"id":"ai_PGKDcpxM","name":"bird","value":0.9589917,"app_id":"main"},{"id":"ai_jvVxlhLh","name":"chicken","value":0.80907756,"app_id":"main"},{"id":"ai_ZQGfkTBT","name":"duck","value":0.8062068,"app_id":"main"},{"id":"ai_b4b4hLRV","name":"turkey","value":0.7651013,"app_id":"main"},{"id":"ai_KNh2Htg8","name":"grass","value":0.6971165,"app_id":"main"},{"id":"ai_r2Fbdv8L","name":"beer","value":0.67652917,"app_id":"main"},{"id":"ai_C4T94MlV","name":"tongue","value":0.65974045,"app_id":"main"},{"id":"ai_0wh0dJkQ","name":"sweet","value":0.63072395,"app_id":"main"},{"id":"ai_G58V132Z","name":"water","value":0.6153836,"app_id":"main"},{"id":"ai_T851HmVS","name":"orange","value":0.5905632,"app_id":"main"},{"id":"ai_w1Hd3dTg","name":"nibble","value":0.56520176,"app_id":"main"},{"id":"ai_hh0lr5sh","name":"peanut","value":0.5568334,"app_id":"main"},{"id":"ai_zFqwk1nf","name":"date","value":0.48576477,"app_id":"main"},{"id":"ai_PCfz16nb","name":"goose","value":0.4799006,"app_id":"main"},{"id":"ai_BR1Svb7D","name":"coconut","value":0.47260264,"app_id":"main"},{"id":"ai_RvRS2tMq","name":"ginger","value":0.4696625,"app_id":"main"},{"id":"ai_7dcVtHqc","name":"lamb","value":0.46312013,"app_id":"main"},{"id":"ai_SJM12nRS","name":"fowl","value":0.45812044,"app_id":"main"},{"id":"ai_vGpGP5X8","name":"stout","value":0.45313442,"app_id":"main"},{"id":"ai_PPr5HPcC","name":"grub","value":0.43578377,"app_id":"main"}]}}]}'
     http_version: 
-  recorded_at: Thu, 28 Sep 2017 19:11:29 GMT
+  recorded_at: Thu, 28 Sep 2017 19:45:04 GMT
 - request:
     method: post
     uri: https://api.clarifai.com/v2/models/aaa03c23b3724a16a56b629203edc62c/outputs
@@ -80,18 +80,18 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Thu, 28 Sep 2017 19:11:29 GMT
+      - Thu, 28 Sep 2017 19:45:04 GMT
       Server:
       - nginx
       Content-Length:
-      - '945'
+      - '947'
       Connection:
       - keep-alive
     body:
       encoding: ASCII-8BIT
-      string: '{"status":{"code":10000,"description":"Ok"},"outputs":[{"id":"c54514ff6e7e47d697d665a965355f1f","status":{"code":10000,"description":"Ok"},"created_at":"2017-09-28T19:11:29.593447176Z","model":{"id":"aaa03c23b3724a16a56b629203edc62c","name":"general-v1.3","created_at":"2016-03-09T17:11:39.608845Z","app_id":"main","output_info":{"message":"Show
+      string: '{"status":{"code":10000,"description":"Ok"},"outputs":[{"id":"abdf8b2249f54f818be59159d11ad85d","status":{"code":10000,"description":"Ok"},"created_at":"2017-09-28T19:45:04.330245718Z","model":{"id":"aaa03c23b3724a16a56b629203edc62c","name":"general-v1.3","created_at":"2016-03-09T17:11:39.608845Z","app_id":"main","output_info":{"message":"Show
         output_info with: GET /models/{model_id}/output_info","type":"concept","type_ext":"concept"},"model_version":{"id":"aa9ca48295b37401f8af92ad1af0d91d","created_at":"2016-07-13T01:19:12.147644Z","status":{"code":21100,"description":"Model
-        trained successfully"}},"display_name":"General"},"input":{"id":"afa5b22b488a4085b704f7ac680ae480","data":{"image":{"url":"https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/kitten.jpg"}}},"data":{"concepts":[{"id":"ai_mFqxrph2","name":"cat","value":0.99710786,"app_id":"main"},{"id":"ai_4CRlSvbV","name":"cute","value":0.9926803,"app_id":"main"},{"id":"ai_SzsXMB1w","name":"animal","value":0.99216247,"app_id":"main"},{"id":"ai_N6BnC4br","name":"mammal","value":0.98995066,"app_id":"main"},{"id":"ai_wqgGDjK4","name":"fur","value":0.98670036,"app_id":"main"},{"id":"ai_mcD3LPbx","name":"kitten","value":0.98362386,"app_id":"main"},{"id":"ai_gPNNX7LT","name":"pet","value":0.9834541,"app_id":"main"},{"id":"ai_TJ9wFfK5","name":"portrait","value":0.97950053,"app_id":"main"},{"id":"ai_HkqZwBbr","name":"little","value":0.972787,"app_id":"main"},{"id":"ai_9fQBzNBM","name":"looking","value":0.9629047,"app_id":"main"},{"id":"ai_FJtp0BM6","name":"downy","value":0.9583347,"app_id":"main"},{"id":"ai_9d6FvTfP","name":"eye","value":0.94972646,"app_id":"main"},{"id":"ai_R67cVW5t","name":"sit","value":0.93846834,"app_id":"main"},{"id":"ai_Fvlm59zK","name":"tabby","value":0.93800896,"app_id":"main"},{"id":"ai_bg5916rj","name":"whisker","value":0.9355846,"app_id":"main"},{"id":"ai_5sqbqWHm","name":"domestic","value":0.9333814,"app_id":"main"},{"id":"ai_BpnQsTtg","name":"young","value":0.9159099,"app_id":"main"},{"id":"ai_mxWQgKVb","name":"curiosity","value":0.9130316,"app_id":"main"},{"id":"ai_sh2txgFZ","name":"staring","value":0.9116063,"app_id":"main"},{"id":"ai_cNfpjTnr","name":"furry","value":0.90976584,"app_id":"main"}]}}]}'
+        trained successfully"}},"display_name":"General"},"input":{"id":"b76d26354ff049e7840d33a5fddc8aa7","data":{"image":{"url":"https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/kitten.jpg"}}},"data":{"concepts":[{"id":"ai_mFqxrph2","name":"cat","value":0.99710786,"app_id":"main"},{"id":"ai_4CRlSvbV","name":"cute","value":0.9926803,"app_id":"main"},{"id":"ai_SzsXMB1w","name":"animal","value":0.99216247,"app_id":"main"},{"id":"ai_N6BnC4br","name":"mammal","value":0.98995066,"app_id":"main"},{"id":"ai_wqgGDjK4","name":"fur","value":0.98670036,"app_id":"main"},{"id":"ai_mcD3LPbx","name":"kitten","value":0.98362386,"app_id":"main"},{"id":"ai_gPNNX7LT","name":"pet","value":0.9834541,"app_id":"main"},{"id":"ai_TJ9wFfK5","name":"portrait","value":0.97950053,"app_id":"main"},{"id":"ai_HkqZwBbr","name":"little","value":0.972787,"app_id":"main"},{"id":"ai_9fQBzNBM","name":"looking","value":0.9629047,"app_id":"main"},{"id":"ai_FJtp0BM6","name":"downy","value":0.9583347,"app_id":"main"},{"id":"ai_9d6FvTfP","name":"eye","value":0.94972646,"app_id":"main"},{"id":"ai_R67cVW5t","name":"sit","value":0.93846834,"app_id":"main"},{"id":"ai_Fvlm59zK","name":"tabby","value":0.93800896,"app_id":"main"},{"id":"ai_bg5916rj","name":"whisker","value":0.9355846,"app_id":"main"},{"id":"ai_5sqbqWHm","name":"domestic","value":0.9333814,"app_id":"main"},{"id":"ai_BpnQsTtg","name":"young","value":0.9159099,"app_id":"main"},{"id":"ai_mxWQgKVb","name":"curiosity","value":0.9130316,"app_id":"main"},{"id":"ai_sh2txgFZ","name":"staring","value":0.9116063,"app_id":"main"},{"id":"ai_cNfpjTnr","name":"furry","value":0.90976584,"app_id":"main"}]}}]}'
     http_version: 
-  recorded_at: Thu, 28 Sep 2017 19:11:29 GMT
+  recorded_at: Thu, 28 Sep 2017 19:45:04 GMT
 recorded_with: VCR 3.0.3

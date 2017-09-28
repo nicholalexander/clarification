@@ -116,7 +116,22 @@ Go and do likewise.
 
 ### Train
 
-...Upcoming...
+There are three steps to setting up a custom model:
+
+* Add images with concepts.  
+* Create a model with the same concepts that you've associated with images.
+* Train said model.
+
+These three steps can be accomplished thusly:
+
+```ruby
+cat_related_concepts = ["cat", "feline", "superior"]
+client.train.add_image(some_url_of_a_cat, cat_related_concepts)
+client.train.create_model('cat', cat_related_concepts)
+client.train.train_model('cat')
+```
+
+Now that you have the model created and trained, you should be able to predict against it.  Except right now, that's not implemented in the Gem... womp womp.
 
 ## TODO's
 
@@ -126,10 +141,10 @@ Lots and lots of things.  Amongst them:
 * error handling
 * predict multiple images per call
 * predict video
-* better testing.
+* better testing
 * documentation
 * use workflows
-* training custom models
+* predict against 
 
 ## Development
 

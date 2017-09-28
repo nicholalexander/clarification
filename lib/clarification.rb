@@ -9,7 +9,9 @@ require "clarification/response"
 require "clarification/response/search_response"
 require "clarification/requester"
 require "clarification/requester/search_requester"
+require "clarification/requester/train_requester"
 require "clarification/search"
+require "clarification/train"
 require "clarification/version"
 
 require 'net/http'

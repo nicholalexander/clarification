@@ -16,7 +16,6 @@ RSpec.describe Clarification::Client do
 
       client = Clarification::Client.new
 
-      expect(client.last_response).to be nil
       expect(client.active_public_models).to eq([:food])
     end
   end
@@ -46,45 +45,9 @@ RSpec.describe Clarification::Client do
   end
 
   describe "#predict" do
-    it "the client should implement a method called predict" do
-      expect(Clarification::Client.new.respond_to? :predict).to be true
+    it "the client should have accees to a predict object" do
+      expect(Clarification::Client.new.predict.class).to eq Clarification::Predict
     end
-
-    
-    it "should return an array of concepts" do        
-      VCR.use_cassette('predict_cat') do
-        Clarification.configure do |config|
-          config.api_key = 'f7cc628178994e16b2470ae739ef927a'
-          config.default_public_models = [:food, :general]
-        end
-
-        images = YAML.load_file("spec/fixtures/images.yml")
-        url = images[:kitten]
-
-        client = Clarification::Client.new
-        response = client.predict(url)
-
-        expect(response[:general].concepts.class).to eq Array
-      end
-    end
-
-    it "should set @last_response" do
-      VCR.use_cassette('predict_cat', re_record_interval: 604800) do
-        Clarification.configure do |config|
-          config.api_key = 'f7cc628178994e16b2470ae739ef927a'
-          config.default_public_models = [:food, :general]
-        end
-
-        images = YAML.load_file("spec/fixtures/images.yml")
-        url = images[:kitten]
-
-        client = Clarification::Client.new
-        response = client.predict(url)
-
-        expect(client.last_response).to eq response
-      end
-    end
-  
   end
 
   describe "#search" do
@@ -93,12 +56,16 @@ RSpec.describe Clarification::Client do
     end
   end
 
+  describe "#train" do
+    it "should have an instance of the train class accessible" do
+      expect(Clarification::Client.new.train.class).to eq Clarification::Train
+    end
+  end
+
 
   describe "attr_readers" do
-    it "should respond to active_public_models, last_response, and search" do
-      [:active_public_models, :last_response, :search].each do |method|
-        expect(Clarification::Client.new.respond_to? method).to be true
-      end
+    it "should respond to active_public_models" do
+      expect(Clarification::Client.new.respond_to? :active_public_models).to be true
     end
   end
 

@@ -49,7 +49,7 @@ This will change when [Workflow](https://clarifai.com/developer/guide/workflow#w
 
 ```ruby
 client = Clarification::Client.new
-response = client.predict(some_public_url_of_an_image)
+response = client.predict.by_url(some_public_url_of_an_image)
 ```
 
 ### Prediction
@@ -83,8 +83,8 @@ All the objects are OpenStructs currently, but I suspect this will change shortl
 As a convenience, the client also maintains the parsed response in the last_response variable.
 
 ```ruby
-client.predict(some_public_url_of_an_image)
-client.last_response #=> {:food => Objectifier...}
+client.predict.by_url(some_public_url_of_an_image)
+client.predict.last_response #=> {:food => Objectifier...}
 ```
 
 ### Search

@@ -24,7 +24,7 @@ end
 #          :face_embedding,
 #          :focus,
 #          :food,
-#          :general,
+#          :general,  
 #          :general_embedding,
 #          :logo,
 #          :moderation,
@@ -34,17 +34,18 @@ end
 
 @client = Clarification::Client.new
 # @client.set_models(models)
-# @response = @client.predict(@target_url)
+@target_url = @images[:kitten]
+@response = @client.predict.by_url(@target_url)
 
 # @client.search.index_image
 # @client.search.by_concepts
 # @client.search.by_images
 
 @url = @images[:faces]
-@concepts = ["faces", "people", "humans"]
-@client.train.add_image(@url, @concepts)
-@client.train.create_model('faces', @concepts)
-@client.train.train_model('faces')
+# @concepts = ["faces", "people", "humans"]
+# @client.train.add_image(@url, @concepts)
+# @client.train.create_model('faces', @concepts)
+# @client.train.train_model('faces')
 
 # (If you use this, don't forget to add pry to your Gemfile!)
 require "pry"

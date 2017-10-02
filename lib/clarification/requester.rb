@@ -14,7 +14,6 @@ module Clarification
     end
 
     private
-
     def get_with_model(target_url, model)
       uri = uri_builder(model)
       body = body_builder(target_url)
@@ -43,8 +42,7 @@ module Clarification
     end
 
     def uri_builder(model)
-      model_key = Clarification::PUBLIC_MODELS[model]
-      url = "#{Clarification::BASE_URL}models/#{model_key}/outputs"
+      url = "#{Clarification::BASE_URL}models/#{model.id}/outputs"
       uri = URI.parse(url)
     end
 
@@ -58,10 +56,7 @@ module Clarification
     end
 
     def options_builder(uri)
-      request_options = {
-        use_ssl: uri.scheme == "https",
-      }
-      return request_options
+      {use_ssl: uri.scheme == "https"}
     end
 
     def get_response(uri, body)
@@ -73,7 +68,6 @@ module Clarification
       end
 
       return response
-    
     end
 
 

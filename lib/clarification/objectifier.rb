@@ -10,7 +10,6 @@ module Clarification
       @error = nil
       
       build_concept_objects
-      
     end
 
     def build_concept_objects
@@ -24,12 +23,9 @@ module Clarification
 
       if concepts  
         concepts.each do |concept_hash|
-  
           name = concept_hash["name"]
           value = concept_hash["value"]
-
           concept = Concept.new(name, value)
-
           @concepts << concept
         end
       else
@@ -40,8 +36,10 @@ module Clarification
             # concept.class = concept::focus
             focus = OpenStruct.new(data["focus"])
             regions = []
-            data["regions"].each do |region|
-              regions << OpenStruct.new(region)
+            if data["regions"]
+              data["regions"].each do |region|
+                regions << OpenStruct.new(region)
+              end
             end
             focus_hash = {focus: focus, regions: regions}
             @concepts << OpenStruct.new(focus_hash)

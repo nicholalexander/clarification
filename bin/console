@@ -33,18 +33,20 @@ end
 #          # :wedding ]
 
 @client = Clarification::Client.new
-@target_url = @images[:kitten]
-@response = @client.predict.by_url(@target_url)
+# @target_url = @images[:kitten]
+# @response = @client.predict.by_url(@target_url)
 
 # @client.search.index_image
 # @client.search.by_concepts
 # @client.search.by_images
 
-# @url = @images[:faces]
-# @concepts = ["faces", "people", "humans"]
-# @client.train.add_image(@url, @concepts)
-# @client.train.create_model('faces', @concepts)
-# @client.train.train_model('faces')
+@url = @images[:faces]
+@concepts = ["faces", "people", "humans"]
+@client.train.add_image(@url, @concepts)
+@model = @client.train.create_model('faces', @concepts)
+# @client.train.train_model(model)
+
+# @client.set_active_models([model])
 
 # (If you use this, don't forget to add pry to your Gemfile!)
 require "pry"

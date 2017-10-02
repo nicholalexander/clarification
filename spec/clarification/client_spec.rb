@@ -57,13 +57,13 @@ RSpec.describe Clarification::Client do
     describe "#set_active_models" do
       it "should update the client models" do
         client = Clarification::Client.new
-        client.set_active_models({blurgh: '123123123'})
+        client.set_active_models_from_hash({blurgh: '123123123'})
         expect(client.active_models.first.name).to eq(:blurgh)  
       end
 
       it "should update the models of the predict object" do
         client = Clarification::Client.new
-        client.set_active_models({blurgh: '123123123'})
+        client.set_active_models_from_hash({blurgh: '123123123'})
         models = client.predict.instance_eval {@models}
         expect(models.first.name).to eq(:blurgh)
       end

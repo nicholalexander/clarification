@@ -43,9 +43,11 @@ This should also work nicely inside a rails initializer.
 
 **Each endpoint initialized in your configuration will be called by default from the client.  So any predictions using a client configured with `:food` and `:general` will make two API requests.**
 
-This will change when [Workflow](https://clarifai.com/developer/guide/workflow#workflow) is implemented in the gem.
+**When [Workflow](https://clarifai.com/developer/guide/workflow#workflow) is implemented in the gem, you will be able to call against your workflow instead of the public models.**
 
-## Usage
+You can also configure the client on the fly with  `client.set_active_models_by_public_key([:food, :general])`, `client.set_active_models_from_hash({food: 'fasldfsadflkjasdf'})` (useful for custom models) or `client.set_active_models(model)` where model is a Clarification::Model.  See more in Training.
+
+## Basic Usage
 
 ```ruby
 client = Clarification::Client.new
@@ -129,11 +131,18 @@ These three steps can be accomplished thusly:
 ```ruby
 cat_related_concepts = ["cat", "feline", "superior"]
 client.train.add_image(some_url_of_a_cat, cat_related_concepts)
-client.train.create_model('cat', cat_related_concepts)
-client.train.train_model('cat')
+model = client.train.create_model('cat', cat_related_concepts)
+client.train.train_model(model)
 ```
 
-Now that you have the model created and trained, you should be able to predict against it.  Except right now, that's not implemented in the Gem... womp womp.
+Now that you have the model created and trained, you should be able to predict against it.  Though you may need to wait for Clarifai to finish the model training.
+
+```ruby
+client.set_active_models([model])
+client.predict.by_url(some_public_url)
+```
+
+Walla, as they say in France.
 
 ## TODO's
 
@@ -145,7 +154,6 @@ Lots and lots of things.  Amongst them:
 * better testing
 * documentation
 * use workflows
-* predict against private model
 
 ## Development
 

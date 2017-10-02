@@ -38,9 +38,10 @@ module Clarification
     def set_active_models(model_hash)
       models = []
       model_hash.each do |key, value|
-        models << Model.new(name: key, value: value)
+        models << Model.new(name: key, id: value)
       end
       @active_models = models
+      @predict = Predict.new(@active_models)
     end
 
     private

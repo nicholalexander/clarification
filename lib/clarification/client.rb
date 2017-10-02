@@ -15,12 +15,13 @@ module Clarification
     # 
     # @param model_name_array [Array] an array of public model names. eg. [:food, :general]
     # @return [Predict] the newly initialized Prediction object.
+    # @example
+    #   client.set_active_models_by_public_key([:food, :general])
     def set_active_models_by_public_key(model_name_array)
       if model_name_array.class != Array
         raise "Clarification expects an array of model keys."
       end
       
-      # TODO: raise error when key not in public models
       name_check = model_name_array - Clarification::PUBLIC_MODELS.keys
       unless name_check.empty?
         raise "#{name_check} models are not recognized.  Check Clarification::PUBLIC_MODELS"
@@ -33,10 +34,13 @@ module Clarification
     # Set the models that the client will process against.
     # 
     # @param model_hash [Hash] A hash containing the name of the model as the key and the id as the value.
-    # @return [Hash] @active_models
-    # 
+    # @return [Array] active_models
     def set_active_models(model_hash)
-      @active_models = model_hash
+      models = []
+      model_hash.each do |key, value|
+        models << Model.new(name: key, value: value)
+      end
+      @active_models = models
     end
 
     private

@@ -16,32 +16,59 @@ RSpec.describe Clarification::Client do
 
       client = Clarification::Client.new
 
-      expect(client.active_public_models).to eq([:food])
+      expect(client.active_models.first.name).to eq(:food)
     end
   end
 
   context "when the models are changed" do
-    it "should rewrite the active_models" do
-      client = Clarification::Client.new
 
-      client.set_models([:general, :blurgh])
-
-      expect(client.active_public_models.count).to eq(2)
-      expect(client.active_public_models.last).to eq(:blurgh)
-      expect(client.active_public_models.include?(:food)).to be(false)
-    end
-
-    context "when the models are changed and a single item is passed in" do
-      it "should raise an error if the argument isn't an array" do
+    describe "#set_active_models_by_public_key" do 
+      it "should rewrite the active_models" do
         client = Clarification::Client.new
-        expect{client.set_models(:food)}.to raise_error(RuntimeError)
+
+        client.set_active_models_by_public_key([:general, :focus])
+
+        expect(client.active_models.count).to eq(2)
+        expect(client.active_models.last.name).to eq(:focus)
       end
 
-      it "should give a meaningful error message about arrays" do
+      it "should update the associated Predict model of the client" do
         client = Clarification::Client.new
-        expect{client.set_models(:food)}.to raise_error(/array of models/)
+
+        client.set_active_models_by_public_key([:general, :focus])
+
+        models = client.predict.instance_eval{@models}
+        expect(models.last.name).not_to eq(:food)
+      end
+
+      context "when the models are changed and a single item is passed in" do
+        it "should raise an error if the argument isn't an array" do
+          client = Clarification::Client.new
+          expect{client.set_active_models_by_public_key(:food)}.to raise_error(RuntimeError)
+        end
+
+        it "should give a meaningful error message about arrays" do
+          client = Clarification::Client.new
+          expect{client.set_active_models_by_public_key(:food)}.to raise_error(/array of model/)
+        end
       end
     end
+    
+    describe "#set_active_models" do
+      it "should update the client models" do
+        client = Clarification::Client.new
+        client.set_active_models({blurgh: '123123123'})
+        expect(client.active_models.first.name).to eq(:blurgh)  
+      end
+
+      it "should update the models of the predict object" do
+        client = Clarification::Client.new
+        client.set_active_models({blurgh: '123123123'})
+        models = client.predict.instance_eval {@models}
+        expect(models.first.name).to eq(:blurgh)
+      end
+    end
+
   end
 
   describe "#predict" do
@@ -65,7 +92,7 @@ RSpec.describe Clarification::Client do
 
   describe "attr_readers" do
     it "should respond to active_public_models" do
-      expect(Clarification::Client.new.respond_to? :active_public_models).to be true
+      expect(Clarification::Client.new.respond_to? :active_models).to be true
     end
   end
 

@@ -139,14 +139,13 @@ Now that you have the model created and trained, you should be able to predict a
 
 Lots and lots of things.  Amongst them:
 
-* validate public model selections
 * error handling
 * predict multiple images per call
 * predict video
 * better testing
 * documentation
 * use workflows
-* predict against 
+* predict against private model
 
 ## Development
 

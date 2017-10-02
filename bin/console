@@ -17,23 +17,22 @@ end
 @urls = [ @images[:mountains], @images[:kitten], @images[:drake] ]
 
 # models = [:apparel,
-#          :celebrity,
-#          :color,
-#          :demographics,
-#          :face_detection,
-#          :face_embedding,
-#          :focus,
-#          :food,
-#          :general,  
-#          :general_embedding,
-#          :logo,
-#          :moderation,
-#          :nsfw,
-#          :travel,
-#          :wedding ]
+#          # :celebrity,
+#          # :color,
+#          # :demographics,
+#          # :face_detection,
+#          # :face_embedding,
+#          # :focus,
+#          # :food,
+#          # :general,  
+#          # :general_embedding,
+#          # :logo,
+#          # :moderation,
+#          # :nsfw,
+#          # :travel,
+#          # :wedding ]
 
 @client = Clarification::Client.new
-# @client.set_models(models)
 @target_url = @images[:kitten]
 @response = @client.predict.by_url(@target_url)
 
@@ -41,7 +40,7 @@ end
 # @client.search.by_concepts
 # @client.search.by_images
 
-@url = @images[:faces]
+# @url = @images[:faces]
 # @concepts = ["faces", "people", "humans"]
 # @client.train.add_image(@url, @concepts)
 # @client.train.create_model('faces', @concepts)
@@ -51,3 +50,7 @@ end
 require "pry"
 Pry.start
 
+
+# curl -X GET \
+#   -H "Authorization: Key f7cc628178994e16b2470ae739ef927a" \
+#   https://api.clarifai.com/v2/models

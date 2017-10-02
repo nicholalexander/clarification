@@ -1,7 +1,6 @@
 module Clarification
   BASE_URL = 'https://api.clarifai.com/v2/'.freeze
 
-
   PUBLIC_MODELS = {
     apparel: 'e0be3b9d6a454f0493ac3a30784001ff',
     celebrity: 'e466caa0619f444ab97497640cefc4dc',
@@ -19,5 +18,5 @@ module Clarification
     travel: 'eee28c313d69466f836ab83287a54ed9',
     wedding: 'c386b7a870114f4a87477c0824499348'
   }
-
+  
 end

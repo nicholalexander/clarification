@@ -35,7 +35,7 @@ module Clarification
     # 
     # @param model_hash [Hash] A hash containing the name of the model as the key and the id as the value.
     # @return [Array] active_models
-    def set_active_models(model_hash)
+    def set_active_models_from_hash(model_hash)
       models = []
       model_hash.each do |key, value|
         models << Model.new(name: key, id: value)
@@ -43,6 +43,12 @@ module Clarification
       @active_models = models
       @predict = Predict.new(@active_models)
     end
+
+    def set_active_models(models)
+      @active_models = models
+      @predict = Predict.new(@active_models)
+    end
+
 
     private
     def convert_config_models_to_model_hash(model_names)

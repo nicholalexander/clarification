@@ -12,14 +12,14 @@ module Clarification
       uri = uri_builder("models")
       body = create_model_body_builder(name, concept_array)
       response = get_response(uri, body)
-      return response
+      return response.body
     end
 
     def train_model(id)
       uri = uri_builder("models/#{id}/versions")
       body = {}
       response = get_response(uri, body)
-      return response
+      return response.body
     end
 
     private

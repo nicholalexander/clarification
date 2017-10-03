@@ -6,20 +6,23 @@ RSpec.describe Clarification::TrainRequester do
     expect(Clarification::TrainRequester.superclass).to eq Clarification::Requester
   end
 
-  describe "#add_image_with_concepts" do
-    before do
-      Clarification.configure do |config|
-          config.api_key = 'f7cc628178994e16b2470ae739ef927a'
-          config.default_public_models = [:food, :general]
-      end
+  before do
+    Clarification.configure do |config|
+      config.api_key = 'f7cc628178994e16b2470ae739ef927a'
+      config.default_public_models = [:food, :general]
+    end
+    @concept_array = ['faces', 'people']
+    @model_name = 'faces'
+    @train_requester = Clarification::TrainRequester.new
+  end
 
-      train_requester = Clarification::TrainRequester.new
+  describe "#add_image_with_concepts" do
+    before do 
       @images = YAML.load_file("spec/fixtures/images.yml")
       image = @images[:faces]
-      concept_array = ['faces', 'people']
 
       VCR.use_cassette('add_image_with_concepts') do
-        @response = train_requester.add_image_with_concepts(image, concept_array)
+        @response = @train_requester.add_image_with_concepts(image, @concept_array)
       end
     end
 
@@ -36,17 +39,10 @@ RSpec.describe Clarification::TrainRequester do
 
   describe "#create_model" do
     before do
-      Clarification.configure do |config|
-        config.api_key = 'f7cc628178994e16b2470ae739ef927a'
-        config.default_public_models = [:food, :general]
-      end
-      
-      train_requester = Clarification::TrainRequester.new
-      @concept_array = ['faces', 'people']
       model_name = 'faces'
 
       VCR.use_cassette('create_model') do
-        @response = train_requester.create_model('faces', @concept_array)
+        @response = @train_requester.create_model(model_name, @concept_array)
       end
     end
 
@@ -67,17 +63,8 @@ RSpec.describe Clarification::TrainRequester do
 
   describe "#train_model" do
     before do
-      Clarification.configure do |config|
-        config.api_key = 'f7cc628178994e16b2470ae739ef927a'
-        config.default_public_models = [:food, :general]
-      end
-      
-      train_requester = Clarification::TrainRequester.new
-      @concept_array = ['faces', 'people']
-      @model_name = 'faces'
-
       VCR.use_cassette('train_model') do
-        @response = train_requester.create_model('faces', @concept_array)
+        @response = @train_requester.create_model(@model_name, @concept_array)
       end
     end
 

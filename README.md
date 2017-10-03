@@ -3,6 +3,7 @@
 [![Test Coverage](https://codeclimate.com/github/nicholalexander/clarification/badges/coverage.svg)](https://codeclimate.com/github/nicholalexander/clarification/coverage)
 [![Code Climate](https://codeclimate.com/github/nicholalexander/clarification/badges/gpa.svg)](https://codeclimate.com/github/nicholalexander/clarification)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/cb0dd6cce7ec48a191696780951c5efe)](https://www.codacy.com/app/nicholalexander/clarification?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nicholalexander/clarification&amp;utm_campaign=Badge_Grade)
+[![Inline docs](http://inch-ci.org/github/nicholalexander/clarification.svg?branch=master)](http://inch-ci.org/github/nicholalexander/clarification)
 
 # Clarification
 

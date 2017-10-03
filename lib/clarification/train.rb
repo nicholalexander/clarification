@@ -1,10 +1,6 @@
 module Clarification
   class Train
 
-    def initialize
-      @model_id = nil
-    end
-
     def add_image(image, concept_array)
       training_requester = TrainRequester.new
       response = training_requester.add_image_with_concepts(image, concept_array)

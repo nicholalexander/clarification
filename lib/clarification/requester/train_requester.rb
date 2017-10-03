@@ -5,7 +5,7 @@ module Clarification
       uri = uri_builder("inputs")
       body = image_with_concepts_body_builder(target_url, concept_array)
       response = get_response(uri, body)
-      return response
+      return response.body
     end
 
     def create_model(name, concept_array)

@@ -42,8 +42,8 @@ end
 
 @url = @images[:faces]
 @concepts = ["faces", "people", "humans"]
-@client.train.add_image(@url, @concepts)
-@model = @client.train.create_model('faces', @concepts)
+@response = @client.train.add_image(@url, @concepts)
+# @model = @client.train.create_model('faces', @concepts)
 # @client.train.train_model(model)
 
 # @client.set_active_models([model])

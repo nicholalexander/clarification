@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.clarifai.com/v2/models
+    body:
+      encoding: UTF-8
+      string: '{"model":{"id":"faces","output_info":{"data":{"concepts":[{"id":"faces"},{"id":"people"}]},"output_config":{"concepts_mutually_exclusive":false,"closed_environment":false}}}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.clarifai.com
+      Content-Type:
+      - application/json
+      Authorization:
+      - Key f7cc628178994e16b2470ae739ef927a
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type,Accept,X-Requested-With,Content-Type,Accept-Encoding,X-CSRF-Token,Authorization,X-Clarifai-Application-Id,X-Clarifai-REST-API-Key,X-Clarifai-Session-Token,X-Clarifai-Client,X-Clarifai-Site
+      Access-Control-Allow-Methods:
+      - GET,HEAD,POST,PUT,PATCH,OPTIONS,DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 03 Oct 2017 17:11:47 GMT
+      Server:
+      - nginx
+      Content-Length:
+      - '356'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"status":{"code":10000,"description":"Ok"},"model":{"id":"faces","name":"faces","created_at":"2017-10-03T17:11:47.793438129Z","app_id":"f149bdd9e05c470187920992eb502208","output_info":{"output_config":{"concepts_mutually_exclusive":false,"closed_environment":false},"message":"Show
+        output_info with: GET /models/{model_id}/output_info","type":"concept","type_ext":"concept"},"model_version":{"id":"c48a682cb6644c88977d5aa59460b00f","created_at":"2017-10-03T17:11:47.803988440Z","status":{"code":21102,"description":"Model
+        not yet trained"},"active_concept_count":2}}}'
+    http_version: 
+  recorded_at: Tue, 03 Oct 2017 17:11:47 GMT
+recorded_with: VCR 3.0.3

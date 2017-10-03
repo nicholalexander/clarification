@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.clarifai.com/v2/inputs
+    body:
+      encoding: UTF-8
+      string: '{"inputs":[{"data":{"image":{"url":"https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/donuts.jpg"}}}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.clarifai.com
+      Content-Type:
+      - application/json
+      Authorization:
+      - Key f7cc628178994e16b2470ae739ef927a
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type,Accept,X-Requested-With,Content-Type,Accept-Encoding,X-CSRF-Token,Authorization,X-Clarifai-Application-Id,X-Clarifai-REST-API-Key,X-Clarifai-Session-Token,X-Clarifai-Client,X-Clarifai-Site
+      Access-Control-Allow-Methods:
+      - GET,HEAD,POST,PUT,PATCH,OPTIONS,DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 03 Oct 2017 18:03:22 GMT
+      Server:
+      - nginx
+      Content-Length:
+      - '377'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"status":{"code":10000,"description":"Ok"},"inputs":[{"id":"e80f98c92a4c4b0199e58e1adc48666f","data":{"image":{"url":"https://raw.githubusercontent.com/nicholalexander/clarification/master/spec/support/images/donuts.jpg"}},"created_at":"2017-10-03T18:03:22.057641248Z","modified_at":"2017-10-03T18:03:22.377908797Z","status":{"code":30000,"description":"Download
+        complete"}}]}'
+    http_version: 
+  recorded_at: Tue, 03 Oct 2017 18:03:22 GMT
+recorded_with: VCR 3.0.3

@@ -5,10 +5,14 @@ module Clarification
     end
 
     def index(target_urls)
+      if target_urls.class != Array 
+        raise "Expecting an array.  Kthxbai."
+      end
+
       uri = uri_builder("inputs")
       body = body_builder(target_urls)
       response = get_response(uri, body)
-      return response
+      return response.body
     end
 
     def get_results_for_concept(concept)

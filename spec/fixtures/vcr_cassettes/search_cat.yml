@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.clarifai.com/v2/searches
+    body:
+      encoding: UTF-8
+      string: '{"query":{"ands":[{"output":{"data":{"concepts":[{"name":"cat"}]}}}]}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.clarifai.com
+      Content-Type:
+      - application/json
+      Authorization:
+      - Key f7cc628178994e16b2470ae739ef927a
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type,Accept,X-Requested-With,Content-Type,Accept-Encoding,X-CSRF-Token,Authorization,X-Clarifai-Application-Id,X-Clarifai-REST-API-Key,X-Clarifai-Session-Token,X-Clarifai-Client,X-Clarifai-Site
+      Access-Control-Allow-Methods:
+      - GET,HEAD,POST,PUT,PATCH,OPTIONS,DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 04 Oct 2017 17:13:31 GMT
+      Server:
+      - nginx
+      Content-Length:
+      - '358'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"status":{"code":10000,"description":"Ok"},"id":"ba6085ca00dd40fa802431f607c5798f","hits":[{"score":0.99710786,"input":{"id":"de6ce0fbc6a848128ee777a429491cae","data":{"image":{"url":"http://bit.ly/2xwDKnY"}},"created_at":"2017-09-25T18:02:54.065485Z","modified_at":"2017-09-25T18:02:54.670607Z","status":{"code":30000,"description":"Download
+        complete"}}}]}'
+    http_version: 
+  recorded_at: Wed, 04 Oct 2017 17:13:31 GMT
+recorded_with: VCR 3.0.3

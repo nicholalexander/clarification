@@ -9,10 +9,29 @@ RSpec.describe Clarification::Search do
     end
   end
 
+  describe "#index_images" do
+    it "should return a successful status" do
+      search = Clarification::Search.new
+      images = YAML.load_file("spec/fixtures/images.yml")
+      image_array = [images[:kitten]]
+
+      VCR.use_cassette('index_cat') do
+        @response = search.index_images(image_array)
+      end
+
+      expect(@response.class).to eq String
+      expect(JSON.parse(@response)['status']['code']).to eq 10000
+    end
+  end
+
+  describe "#by_images" do
+    it "should raise an error" do
+      expect{Clarification::Search.new.by_images([])}.to raise_error(RuntimeError)
+    end
+  end
+
   describe "#by_concept" do
-    
-    context "when there is a successful search" do
-      
+    context "when there is a successful search" do      
       before do
         search = Clarification::Search.new
         @concept = 'cat'
@@ -41,7 +60,7 @@ RSpec.describe Clarification::Search do
         expect(@response.hits.class).to eq Array
         expect(@response.hits.count).not_to eq 0
       end
-
     end
   end
+
 end

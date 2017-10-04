@@ -1,0 +1,94 @@
+{
+  "name": "nicholalexander/clarification",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "",
+  "branch": "",
+  "style": {
+    "name": "Brutalist",
+    "componentSet": {
+      "nav": "nav/BasicNav",
+      "header": "header/BasicHeader",
+      "article": "article/MarkdownArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "Consolas, \"Liberation Mono\", Menlo, Courier, monospace",
+    "heading": {},
+    "typeScale": [
+      48,
+      32,
+      20,
+      18,
+      16,
+      14,
+      12
+    ],
+    "layout": {
+      "maxWidth": 1024,
+      "fluid": true
+    },
+    "colors": {
+      "text": "#333",
+      "background": "#fff",
+      "primary": "#666",
+      "secondary": "#888",
+      "highlight": "#1f80ff",
+      "muted": "#f6f6f6",
+      "border": "#eee"
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://rubygems.org/gems/clarification",
+          "text": "Home"
+        },
+        {
+          "href": "https://github.com/nicholalexander/clarification",
+          "text": "GitHub"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "clarification",
+      "subhead": "Ruby Gem for Clarifai API v2",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "clarification: Ruby Gem for Clarifai API v2",
+          "url": "https://rubygems.org/gems/clarification"
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "nicholalexander",
+          "repo": "clarification"
+        }
+      ]
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "<p><a href=\"https://badge.fury.io/rb/clarification\"><img src=\"https://badge.fury.io/rb/clarification.svg\"></a>\n<a href=\"https://travis-ci.org/nicholalexander/clarification\"><img src=\"https://travis-ci.org/nicholalexander/clarification.svg?branch=master\"></a>\n<a href=\"https://codeclimate.com/github/nicholalexander/clarification/coverage\"><img src=\"https://codeclimate.com/github/nicholalexander/clarification/badges/coverage.svg\"></a>\n<a href=\"https://codeclimate.com/github/nicholalexander/clarification\"><img src=\"https://codeclimate.com/github/nicholalexander/clarification/badges/gpa.svg\"></a>\n<a href=\"https://www.codacy.com/app/nicholalexander/clarification?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nicholalexander/clarification&amp;utm_campaign=Badge_Grade\"><img src=\"https://api.codacy.com/project/badge/Grade/cb0dd6cce7ec48a191696780951c5efe\"></a>\n<a href=\"http://inch-ci.org/github/nicholalexander/clarification\"><img src=\"http://inch-ci.org/github/nicholalexander/clarification.svg?branch=master\"></a></p>\n\n<p>An unofficial Ruby wrapper for the <a href=\"http://clarifai.com\">Clarifai</a> API.  This currently uses v2 of the API and was partially created because other Ruby gems are using v1 which is being depricated in late 2017.</p>\n<p>Clarifai is an awesome service and hopefully this gem makes it easier to use it and to use AI image tagging in your Ruby apps.  Please let me know if there&apos;s something you&apos;d like to see but don&apos;t or if you see something you wish you didn&apos;t.  Thanks!</p>\n<p>This gem is currently in development and there is lots likely to change so please be aware!</p>\n<h2>Installation</h2>\n<p>Add this line to your application&apos;s Gemfile:</p>\n<pre>gem <span class=\"hljs-string\">&apos;clarification&apos;</span></pre><p>And then execute:</p>\n<pre><span class=\"hljs-variable\">$ </span>bundle</pre><p>Or install it yourself as:</p>\n<pre>$ gem <span class=\"hljs-keyword\">install</span> clarification</pre><h2>Configuration</h2>\n<p>Configure the gem as you would normally configure a wonderful happy gem.</p>\n<pre>  Clarification.configure <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|config|</span>\n    config.api_key = <span class=\"hljs-string\">&apos;a_big_secret_you_got_from_clarifai&apos;</span>\n    config.default_public_models = [<span class=\"hljs-symbol\">:food</span>, <span class=\"hljs-symbol\">:general</span>]\n  <span class=\"hljs-keyword\">end</span></pre><p>This should also work nicely inside a rails initializer.</p>\n<p><strong>Each endpoint initialized in your configuration will be called by default from the client.  So any predictions using a client configured with <code>:food</code> and <code>:general</code> will make two API requests.</strong></p>\n<p><strong>When <a href=\"https://clarifai.com/developer/guide/workflow#workflow\">Workflow</a> is implemented in the gem, you will be able to call against your workflow instead of the public models.</strong></p>\n<p>You can also configure the client on the fly with  <code>client.set_active_models_by_public_key([:food, :general])</code>, <code>client.set_active_models_from_hash({food: &apos;fasldfsadflkjasdf&apos;})</code> (useful for custom models) or <code>client.set_active_models(model)</code> where model is a Clarification::Model.  See more in Training.</p>\n<h2>Basic Usage</h2>\n<pre>client = Clarification::Client.new\nresponse = client.predict.by_url(some_public_url_of_an_image)</pre><h3>Prediction</h3>\n<p>The response object returned from the prediction is a hash containing a nicely parsed result for each of the models called.  In the above configuration example we have two models.  So we will have response[:food] and response[:general] after asking for a prediction.  Each of those model results have an object which has three pieces of relevant information: status, concepts, and response_json.</p>\n<p>Thusly you can do things like this:</p>\n<pre>response[<span class=\"hljs-symbol\">:food</span>].concepts.each <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|concept|</span>\n  <span class=\"hljs-keyword\">if</span> concept.value &gt; <span class=\"hljs-number\">0</span>.<span class=\"hljs-number\">90</span>\n    puts <span class=\"hljs-string\">&quot;<span class=\"hljs-subst\">#{concept.name}</span>&quot;</span>\n  <span class=\"hljs-keyword\">end</span>\n<span class=\"hljs-keyword\">end</span></pre><pre><span class=\"hljs-keyword\">if</span> response[<span class=\"hljs-symbol\">:food</span>].status.code == <span class=\"hljs-number\">10000</span>\n  puts response[<span class=\"hljs-symbol\">:food</span>].status.description\n<span class=\"hljs-keyword\">end</span></pre><p>If you want the actual api response, it&apos;s here:</p>\n<pre>response[<span class=\"hljs-symbol\">:general</span>].response_json</pre><p>All the objects are OpenStructs currently, but I suspect this will change shortly.</p>\n<p>As a convenience, the client also maintains the parsed response in the last_response variable.</p>\n<pre>client.predict.by_url(some_public_url_of_an_image)\nclient.predict.last_response <span class=\"hljs-comment\">#=&gt; {:food =&gt; Objectifier...}</span></pre><h3>Search</h3>\n<p>The client has a search object which can be used to index images with the Clarifai application identified by the API key.  </p>\n<p>Thusly you can do like this:</p>\n<pre>image_array = [ url_to_picture_of_kitten, url_to_picture_of_pizza, url_to_picture_of_drake]\nclient.search.index_images(image_array)</pre><p>Once you have your images indexed, you can go and search them by concepts that might be in your pictures as identified by Clarifai&apos;s general prediction model.</p>\n<pre>results = client.search.by_concept(<span class=\"hljs-string\">&apos;cat&apos;</span>)\nresults.hits.each <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|hit|</span>\n  puts hit.url <span class=\"hljs-keyword\">if</span> hit.score &gt; .<span class=\"hljs-number\">90</span>\n<span class=\"hljs-keyword\">end</span></pre><p>The search client also saves the last search and searched concept as a matter of convenience.</p>\n<pre>client.search.last_search.hits.count\nclient.search.last_search.concept</pre><p>Go and do likewise.</p>\n<h3>Train</h3>\n<p>There are three steps to setting up a custom model:</p>\n<ul>\n<li>Add images with concepts.  </li>\n<li>Create a model with the same concepts that you&apos;ve associated with images.</li>\n<li>Train said model.</li>\n</ul>\n<p>These three steps can be accomplished thusly:</p>\n<pre>cat_related_concepts = [<span class=\"hljs-string\">&quot;cat&quot;</span>, <span class=\"hljs-string\">&quot;feline&quot;</span>, <span class=\"hljs-string\">&quot;superior&quot;</span>]\nclient.train.add_image(some_url_of_a_cat, cat_related_concepts)\nmodel = client.train.create_model(<span class=\"hljs-string\">&apos;cat&apos;</span>, cat_related_concepts)\nclient.train.train_model(model)</pre><p>Now that you have the model created and trained, you should be able to predict against it.  Though you may need to wait for Clarifai to finish the model training.</p>\n<pre>client.set_active_models([model])\nclient.predict.by_url(some_public_url)</pre><p>Walla, as they say in France.</p>\n<h2>TODO&apos;s</h2>\n<p>Lots and lots of things.  Amongst them:</p>\n<ul>\n<li>error handling</li>\n<li>predict multiple images per call</li>\n<li>predict video</li>\n<li>better testing</li>\n<li>documentation</li>\n<li>use workflows</li>\n</ul>\n<h2>Development</h2>\n<p>After checking out the repo, run <code>bin/setup</code> to install dependencies. Then, run <code>rake spec</code> to run the tests. You can also run <code>bin/console</code> for an interactive prompt that will allow you to experiment.</p>\n<p>The repo intentionally includes an api key in bin/console to make experimenting easy and quick.  If you plan on making a bunch of requests, you can easily sign up for <a href=\"https://clarifai.com/signup/\">your own free key</a>.</p>\n<h2>Contributing</h2>\n<p>Bug reports and pull requests are welcome on GitHub at <a href=\"https://github.com/nicholalexander/clarification\">https://github.com/nicholalexander/clarification</a>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the <a href=\"http://contributor-covenant.org\">Contributor Covenant</a> code of conduct.</p>\n<p>You can also see various code reporting / CI info here:<br><a href=\"https://travis-ci.org/nicholalexander/clarification\">travis ci</a><br><a href=\"https://www.codacy.com/app/nicholalexander/clarification\">codacy</a><br><a href=\"https://codeclimate.com/github/nicholalexander/clarification\">code climate</a>   </p>\n<h2>License</h2>\n<p>The gem is available as open source under the terms of the <a href=\"http://opensource.org/licenses/MIT\">MIT License</a>.</p>\n<h2>Code of Conduct</h2>\n<p>Everyone interacting in the Clarification project&#x2019;s codebases, issue trackers, chat rooms and mailing lists is expected to follow the <a href=\"https://github.com/nicholalexander/clarification/blob/master/CODE_OF_CONDUCT.md\">code of conduct</a>.</p>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/nicholalexander/clarification",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/nicholalexander",
+          "text": "nicholalexander"
+        }
+      ]
+    }
+  ]
+}

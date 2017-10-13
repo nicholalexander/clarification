@@ -13,7 +13,7 @@ RSpec.describe Clarification::Predict do
     end
 
     it "should return an array of concepts" do        
-      VCR.use_cassette('predict_cat') do
+      VCR.use_cassette('predict_cat', re_record_interval: 604800) do
 
         client = Clarification::Client.new
         response = client.predict.by_url(@url)

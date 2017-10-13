@@ -10,5 +10,5 @@ RSpec.describe Clarification::Configuration do
     expect(Clarification::Configuration.new.default_public_models.empty?).to be true
     expect(Clarification::Configuration.new.default_public_models.class).to eq Array
   end
-
+  
 end

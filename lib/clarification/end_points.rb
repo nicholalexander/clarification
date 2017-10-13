@@ -17,6 +17,5 @@ module Clarification
     nsfw: 'e9576d86d2004ed1a38ba0cf39ecb4b1',
     travel: 'eee28c313d69466f836ab83287a54ed9',
     wedding: 'c386b7a870114f4a87477c0824499348'
-  }
-  
+  }.freeze
 end

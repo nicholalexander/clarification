@@ -14,7 +14,7 @@ module Clarification
     # A convenience method to quickly set public models as the active models of a client.
     # 
     # @param model_name_array [Array] an array of public model names. eg. [:food, :general]
-    # @return [Predict] the newly initialized Prediction object.
+    # @return [Predict] the newly initialized Predict object.
     # @example
     #   client.set_active_models_by_public_key([:food, :general])
     def set_active_models_by_public_key(model_name_array)
@@ -49,13 +49,12 @@ module Clarification
       @predict = Predict.new(@active_models)
     end
 
-
     private
     def convert_config_models_to_model_hash(model_names)
       model_names.each.with_object([]) do |key, model_array|
         model_array << Model.new(name: key, id: Clarification::PUBLIC_MODELS[key])
       end
     end 
-
+    
   end
 end

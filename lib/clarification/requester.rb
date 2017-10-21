@@ -10,7 +10,8 @@ module Clarification
       @model_array.each do |model|
         response[model] = get_with_model(target_url, model)
       end
-      return response
+
+      response
     end
 
     private
@@ -24,7 +25,7 @@ module Clarification
         http.request(request)
       end
 
-      return response
+      response
     end
 
     def body_builder(url)
@@ -43,7 +44,8 @@ module Clarification
 
     def uri_builder(model)
       url = "#{Clarification::BASE_URL}models/#{model.id}/outputs"
-      uri = URI.parse(url)
+
+      URI.parse(url)
     end
 
     def request_builder(uri, body)
@@ -52,7 +54,7 @@ module Clarification
       request["Authorization"] = "Key #{Clarification.configuration.api_key}"
       request.body = JSON.dump(body)
 
-      return request
+      request
     end
 
     def options_builder(uri)
@@ -67,9 +69,7 @@ module Clarification
         http.request(request)
       end
 
-      return response
+      response
     end
-
-
   end
 end
